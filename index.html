@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://drive.google.com/uc?id=19zF7Lp7MqgDrp9r0G7yZ6aZnGZ6KDHVj">
+<title>View My Profile</title>
+
+</head>
+
+<body>
+	<img src="https://drive.google.com/uc?id=1hZPT8-NbFhwZ9yD5sMJrSXNPMSmdv5Dz" alt="Profile Picture">
+	<button onclick="myFunction()">View my profile</button>
+	<p>You will be automatically redirected to my profile</p>
+	<p id="countdown"></p>
+
+ <script>
+   var countdownEl = document.getElementById('countdown');
+  var countdownTime = 2;
+  countdownEl.innerHTML = countdownTime;
+
+  var countdownInterval = setInterval(function() {
+    countdownTime--;
+    countdownEl.innerHTML = countdownTime;
+    if (countdownTime == 0) {
+      clearInterval(countdownInterval);
+      myFunction();
+    }
+  }, 1000);
+	  
+    function myFunction() {
+      var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqbU9RSUFBc3IxcGZqQk9teDlMQndyZVhxOXRGQXxBQ3Jtc0tsa2ZqNHRmZGNhT2xBb0tiM1R6SGFOX1NLRVRxTkhXS0RVWG5lcXc5SEdaWUdEOEhDYkxYVDJWRnJ3S3pEU1dxSFRXTUdzMUxCaVd6cnptYTk3SUdqNVRIWDRJWjNGWWRWbjFDQXR5RFl2MC1ZaFUzcw&q=https%3A%2F%2Fv.ht%2F2WauY&html_redirect=1";
+	
+      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = app;
+        window.setTimeout(function() {
+          window.location.href = mobileFallback;
+        }, 25);
+      } else {
+        window.location.href = desktopFallback;
+      }
+	  
+	   function killPopup() {
+        window.removeEventListener('pagehide', killPopup);
+    }
+
+    window.addEventListener('pagehide', killPopup);
+    }
+
+</script>
+</body>
+</html>
